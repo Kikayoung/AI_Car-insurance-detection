@@ -7,6 +7,7 @@ import Form3 from './component/Form3';
 import Form4 from './component/Form4';
 import Result from './component/Result';
 import Home from './component/Home'; 
+import './css/home.css'
 
 const App = () => {
   return (
@@ -14,12 +15,11 @@ const App = () => {
       <div className="App">
         <nav>
           <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
+            <oi>
+              <Link to="/" class="styled-link">Car Insurance Detection</Link>
+            </oi>
           </ul>
         </nav>
-        
         <Routes>
           <Route path="/form1" element={<Form1 />} />
           <Route path="/form2" element={<Form2 />} />
@@ -28,7 +28,6 @@ const App = () => {
           <Route path="/result" element={<Result />} />
           <Route path="/home" element={<Home />} />
           <Route path="/" element={<Home />} />
-
         </Routes>
       </div>
     </BrowserRouter>

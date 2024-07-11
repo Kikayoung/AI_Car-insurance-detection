@@ -33,6 +33,7 @@ const Form4 = () => {
             name="firstName"
             value={formData.firstName}
             onChange={handleChange}
+            placeholder='text'
             className="form-control"
           />
         </div>
