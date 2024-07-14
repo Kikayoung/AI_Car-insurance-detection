@@ -78,7 +78,7 @@ const Result = () => {
         </div>
       </div>
       <button type="button" className="home-button" onClick={handleHomeClick}>
-        Detail
+        Home
       </button>
     </div>
   );

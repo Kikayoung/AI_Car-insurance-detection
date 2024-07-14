@@ -5,21 +5,19 @@ import '../css/form.css';
 const Form = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    months_as_customer: '',
-    policy_annual_premium: '',
-    policy_csl: '',
-    policy_deductable: '',
-    incident_severity: '',
-    vehicle_damage: '',
     insured_occuptation: '',
-    witness: '',
-    incident_state: '',
     insured_sex: '',
+    incident_severity: '',
     collision_type: '',
-    property_claim: '',
+    incident_state: '',
     number_of_vehicle_involved: '',
+    witness: '',
+    authorities_contacted: '',
+    property_damage: '',
+    policy_deductable: '',
     total_claim_amount: '',
-    authorities_contacted: ''
+    property_claim: '',
+    vehicle_claim: '',
   });
 
   const handleChange = (event) => {
@@ -51,43 +49,36 @@ const Form = () => {
       <br/><br/>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
+          <label htmlFor="insured_sex">Insured Sex</label>  
+          <div className="form-check">
+            <input
+              type="radio"
+              id="female"
+              name="insured_sex"
+              value="FEMALE"
+              checked={formData.insured_sex === "FEMALE"}
+              onChange={handleChange}
+              className="form-check-input"
+            />
+            <label htmlFor="female" className="form-check-label">Female</label>
+          </div>
+          
+          <div className="form-check">
+            <input
+              type="radio"
+              id="male"
+              name="insured_sex"
+              value="MALE"
+              checked={formData.insured_sex === "MALE"}
+              onChange={handleChange}
+              className="form-check-input"
+            />
+            <label htmlFor="male" className="form-check-label">Male</label>
+          </div>
+        </div>
+
+        <div className="form-group">
           <label htmlFor="incident_severity">Incident Severity</label>
-          <div className="form-check">
-            <input
-              type="radio"
-              id="major_damage"
-              name="incident_severity"
-              value="Major Damage"
-              checked={formData.incident_severity === "Major Damage"}
-              onChange={handleChange}
-              className="form-check-input"
-            />
-            <label htmlFor="major_damage" className="form-check-label">Major Damage</label>
-          </div>
-          <div className="form-check">
-            <input
-              type="radio"
-              id="minor_damage"
-              name="incident_severity"
-              value="Minor Damage"
-              checked={formData.incident_severity === "Minor Damage"}
-              onChange={handleChange}
-              className="form-check-input"
-            />
-            <label htmlFor="minor_damage" className="form-check-label">Minor Damage</label>
-          </div>
-          <div className="form-check">
-            <input
-              type="radio"
-              id="total_loss"
-              name="incident_severity"
-              value="Total Loss"
-              checked={formData.incident_severity === "Total Loss"}
-              onChange={handleChange}
-              className="form-check-input"
-            />
-            <label htmlFor="total_loss" className="form-check-label">Total Loss</label>
-          </div>
           <div className="form-check">
             <input
               type="radio"
@@ -100,76 +91,63 @@ const Form = () => {
             />
             <label htmlFor="trivial_damage" className="form-check-label">Trivial Damage</label>
           </div>
+
+          <div className="form-check">
+            <input
+              type="radio"
+              id="minor_damage"
+              name="incident_severity"
+              value="Minor Damage"
+              checked={formData.incident_severity === "Minor Damage"}
+              onChange={handleChange}
+              className="form-check-input"
+            />
+            <label htmlFor="minor_damage" className="form-check-label">Minor Damage</label>
+          </div>
+
+          <div className="form-check">
+            <input
+              type="radio"
+              id="major_damage"
+              name="incident_severity"
+              value="Major Damage"
+              checked={formData.incident_severity === "Major Damage"}
+              onChange={handleChange}
+              className="form-check-input"
+            />
+            <label htmlFor="major_damage" className="form-check-label">Major Damage</label>
+          </div>
+
+          <div className="form-check">
+            <input
+              type="radio"
+              id="total_loss"
+              name="incident_severity"
+              value="Total Loss"
+              checked={formData.incident_severity === "Total Loss"}
+              onChange={handleChange}
+              className="form-check-input"
+            />
+            <label htmlFor="total_loss" className="form-check-label">Total Loss</label>
+          </div>
         </div>
 
         <div className="form-group">
-          <label htmlFor="policy_deductable">Policy Deductable</label>
-          <input
-            type="text"
-            id="policy_deductable"
-            name="policy_deductable"
-            value={formData.policy_deductable}
-            onChange={handleCurrencyChange}
-            className="form-control"
-            pattern="^\d{1,3}(,\d{3})*(\.\d{0,2})?$"
-            placeholder="Only Number"
-          />
-        </div>
-
-        {/* ?? */}
-        <div className="form-group">
-          <label htmlFor="vehicle_damage">Vehicle Damage</label>
-          <input
-            type="text"
-            id="vehicle_damage"
-            name="vehicle_damage"
-            value={formData.vehicle_damage}
-            onChange={handleChange}
-            className="form-control"
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="insured_occuptation">Insured Occupation</label>
+          <label htmlFor="collision_type">Collision Type</label>
           <select
-            id="insured_occuptation"
-            name="insured_occuptation"
-            value={formData.insured_occuptation}
+            id="collision_type"
+            name="collision_type"
+            value={formData.collision_type}
             onChange={handleChange}
             className="form-control"
           >
-            <option value="">Select Occupation</option>
-            <option value="craft-repair">Craft Repair</option>
-            <option value="machine-op-inspct">Machine Operation/Inspection</option>
-            <option value="sales">Sales</option>
-            <option value="armed-forces">Armed Forces</option>
-            <option value="tech-support">Tech Support</option>
-            <option value="prof-specialty">Professional Specialty</option>
-            <option value="other-service">Other Service</option>
-            <option value="priv-house-serv">Private Household Service</option>
-            <option value="exec-managerial">Executive/Managerial</option>
-            <option value="protective-serv">Protective Service</option>
-            <option value="transport-moving">Transport/Moving</option>
-            <option value="handlers-cleaners">Handlers/Cleaners</option>
-            <option value="adm-clerical">Administrative/Clerical</option>
-            <option value="farming-fishing">Farming/Fishing</option>
+            <option value="">Select Collision Type</option>
+            <option value="Rear Collision">Rear Collision</option>
+            <option value="Side Collision">Side Collision</option>
+            <option value="Front Collision">Front Collision</option>
+            <option value="UNSURE">UNSURE</option>
           </select>
         </div>
-
-        <div className="form-group">
-          <label htmlFor="witness">Witness</label>
-          <input
-            type="number"
-            id="witness"
-            name="witness"
-            value={formData.witness}
-            onChange={handleChange}
-            className="form-control"
-            min="0"
-            max="3"
-          />
-        </div>
-
 
         <div className="form-group">
           <label htmlFor="incident_state">Incident State</label>
@@ -181,13 +159,14 @@ const Form = () => {
             className="form-control"
           >
             <option value="">Select State</option>
+            <option value="NY">New York (NY)</option>
             <option value="SC">South Carolina (SC)</option>
             <option value="WV">West Virginia (WV)</option>
-            <option value="NC">North Carolina (NC)</option>
-            <option value="NY">New York (NY)</option>
             <option value="VA">Virginia (VA)</option>
+            <option value="NC">North Carolina (NC)</option>
             <option value="PA">Pennsylvania (PA)</option>
             <option value="OH">Ohio (OH)</option>
+
             <option value="CA">California (CA)</option>
             <option value="TX">Texas (TX)</option>
             <option value="FL">Florida (FL)</option>
@@ -206,79 +185,6 @@ const Form = () => {
           </select>
         </div>
 
-
-        <div className="form-group">
-          <label htmlFor="insured_sex">Insured Sex</label>  
-          <div className="form-check">
-            <input
-              type="radio"
-              id="female"
-              name="insured_sex"
-              value="FEMALE"
-              checked={formData.insured_sex === "FEMALE"}
-              onChange={handleChange}
-              className="form-check-input"
-            />
-            <label htmlFor="female" className="form-check-label">Female</label>
-          </div>
-          <div className="form-check">
-            <input
-              type="radio"
-              id="male"
-              name="insured_sex"
-              value="MALE"
-              checked={formData.insured_sex === "MALE"}
-              onChange={handleChange}
-              className="form-check-input"
-            />
-            <label htmlFor="male" className="form-check-label">Male</label>
-          </div>
-          <div className="form-check">
-            <input
-              type="radio"
-              id="unspecified"
-              name="insured_sex"
-              value="unspecified"
-              checked={formData.insured_sex === "unspecified"}
-              onChange={handleChange}
-              className="form-check-input"
-            />
-            <label htmlFor="unspecified" className="form-check-label">Unspecified</label>
-          </div>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="collision_type">Collision Type</label>
-          <select
-            id="collision_type"
-            name="collision_type"
-            value={formData.collision_type}
-            onChange={handleChange}
-            className="form-control"
-          >
-            <option value="">Select Collision Type</option>
-            <option value="Single Vehicle Collision">Single Vehicle Collision</option>
-            <option value="Multi Vehicle Collision">Multi Vehicle Collision</option>
-            <option value="Vehicle Theft">Vehicle Theft</option>
-            <option value="Parked Car">Parked Car</option>
-          </select>
-        </div>
-
-
-        <div className="form-group">
-          <label htmlFor="property_claim">Property Claim</label>
-          <input
-            type="text"
-            id="property_claim"
-            name="property_claim"
-            value={formData.property_claim}
-            onChange={handleCurrencyChange}
-            className="form-control"
-            pattern="^\d{1,3}(,\d{3})*(\.\d{0,2})?$"
-            placeholder="Only Number"
-          />
-        </div>
-
         <div className="form-group">
           <label htmlFor="number_of_vehicle_involved">Number of Vehicle Involved</label>
           <input
@@ -288,11 +194,82 @@ const Form = () => {
             value={formData.number_of_vehicle_involved}
             onChange={handleChange}
             className="form-control"
-            min="1"
-            max="10"
+            min="0"
+            max="1000"
           />
         </div>
 
+        <div className="form-group">
+          <label htmlFor="witness">Witness</label>
+          <input
+            type="number"
+            id="witness"
+            name="witness"
+            value={formData.witness}
+            onChange={handleChange}
+            className="form-control"
+            min="0"
+            max="1000"
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="authorities_contacted">Authorities Contacted</label>
+          <select
+            id="authorities_contacted"
+            name="authorities_contacted"
+            value={formData.authorities_contacted}
+            onChange={handleChange}
+            className="form-control"
+          >
+            <option value="">Select Authorities</option>
+            <option value="Police">Police</option>
+            <option value="Fire">Fire</option>
+            <option value="Other">Other</option>
+            <option value="Ambulance">Ambulance</option>
+            <option value="None">None</option>
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="property_damage">Property Damage</label>
+          <div className="form-control">
+            <label>
+              <input
+                type="radio"
+                name="property_damage"
+                value="YES"
+                checked={formData.property_damage === 'YES'}
+                onChange={handleChange}
+              />
+              Yes
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="property_damage"
+                value="NO"
+                checked={formData.property_damage === 'NO'}
+                onChange={handleChange}
+              />
+              No
+            </label>
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="policy_deductable">Policy Deductable</label>
+          <input
+            type="text"
+            id="policy_deductable"
+            name="policy_deductable"
+            value={formData.policy_deductable}
+            onChange={handleCurrencyChange}
+            className="form-control"
+            pattern="^\d{1,3}(,\d{3})*(\.\d{0,2})?$"
+            placeholder="Only Number"
+          />
+        </div>
 
         <div className="form-group">
           <label htmlFor="total_claim_amount">Total Claim Amount</label>
@@ -309,21 +286,31 @@ const Form = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="authorities_contacted">Authorities Contacted</label>
-          <select
-            id="authorities_contacted"
-            name="authorities_contacted"
-            value={formData.authorities_contacted}
-            onChange={handleChange}
+          <label htmlFor="property_claim">Property Claim</label>
+          <input
+            type="text"
+            id="property_claim"
+            name="property_claim"
+            value={formData.property_claim}
+            onChange={handleCurrencyChange}
             className="form-control"
-          >
-            <option value="">Select Authorities</option>
-            <option value="None">None</option>
-            <option value="Police">Police</option>
-            <option value="Ambulance">Ambulance</option>
-            <option value="Fire">Fire</option>
-            <option value="Other">Other</option>
-          </select>
+            pattern="^\d{1,3}(,\d{3})*(\.\d{0,2})?$"
+            placeholder="Only Number"
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="vehicle_claim">Vehicle Claim</label>
+          <input
+            type="text"
+            id="vehicle_claim"
+            name="vehicle_claim"
+            value={formData.vehicle_claim}
+            onChange={handleCurrencyChange}
+            className="form-control"
+            pattern="^\d{1,3}(,\d{3})*(\.\d{0,2})?$"
+            placeholder="Only Number"
+          />
         </div>
 
         <button type="submit" className="btn-submit">Show Result!</button>
