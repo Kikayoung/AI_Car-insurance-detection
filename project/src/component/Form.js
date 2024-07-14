@@ -48,6 +48,7 @@ const Form = () => {
   return (
     <div className="form-container">
       <h2>Car Insurance Policy Information Form</h2>
+      <br/><br/>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="incident_severity">Incident Severity</label>

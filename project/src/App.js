@@ -18,7 +18,7 @@ const App = () => {
               <Link to="/" class="styled-link">
               <Link to="/" class="image-link">
               <img src="/car2.png" alt="Car Insurance Detection"/>
-            </Link>Insurance<br/>Detection</Link>
+            </Link></Link>
             </oi>
           </ul>
         </nav>
