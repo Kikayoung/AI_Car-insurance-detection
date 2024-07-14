@@ -7,12 +7,15 @@ const Home = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate('/form1');
+    navigate('/form');
   };
 
   return (
     <div className="home-container">
       <h2 className="home-title">Welcome to Home</h2>
+      <h3>We offer a service leveraging car insurance data to detect insurance fraud, 
+        crucial for mitigating significant financial losses for both insurance companies and customers. 
+        Effectively detecting such fraud is pivotal in upholding stability and trust within the insurance industry.</h3>
       <form onSubmit={handleSubmit}>
         <button type="submit" className="home-button">Let's Test!</button>
       </form>

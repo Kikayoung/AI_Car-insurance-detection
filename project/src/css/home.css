@@ -1,28 +1,52 @@
 .home-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-  }
-  
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.home-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.home-subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.home-button {
+  padding: 12px 24px;
+  background-color: #3A5AFE;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+  background-color: #344BFD;
+}
+
+@media (max-width: 600px) {
   .home-title {
     font-size: 24px;
+  }
+
+  .home-subtitle {
+    font-size: 16px;
     margin-bottom: 20px;
   }
-  
+
   .home-button {
+    font-size: 14px;
     padding: 10px 20px;
-    background-color: #3A5AFE;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
   }
-  
-  .home-button:hover {
-    background-color: #0056b3;
-  }
-  
+}
 
 
 
@@ -55,4 +79,13 @@ li {
 
 .styled-link:hover {
     color: #41556b;
+}
+.image-link {
+  display: inline-block;
+}
+
+.image-link img {
+  width: 100px; /* 원하는 크기로 조정 */
+  height: auto;
+  border-radius: 5px; /* 원하지 않으면 제거 */
 }
